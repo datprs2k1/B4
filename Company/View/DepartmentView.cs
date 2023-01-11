@@ -1,13 +1,8 @@
 ﻿using Company.Controller;
 using Company.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Company.View
@@ -20,12 +15,12 @@ namespace Company.View
         public DepartmentView()
         {
             InitializeComponent();
-           
-            setStatus(status);
+
+            setStatus("reset");
 
             load();
             getData();
-            
+
         }
 
         public void getData()
@@ -37,19 +32,19 @@ namespace Company.View
                 code = x.code,
                 name = x.name,
                 description = x.description,
-                parent = x.Department1?.name
+                parent = x.parentDepartment?.name
             }).ToList();
         }
 
         public void load()
         {
             var parent = controller.getAll().Where(x => x.parent == null).ToList();
-            
+
             Department department = new Department();
             department.id = 0;
             department.name = "Select Department";
 
-            parent.Insert(0,department);
+            parent.Insert(0, department);
 
             if (parent != null)
             {
@@ -62,7 +57,7 @@ namespace Company.View
 
         public void setStatus(string status)
         {
-            switch(status)
+            switch (status)
             {
                 case "reset":
                     txtCode.Enabled = false;
@@ -73,7 +68,7 @@ namespace Company.View
                     btnEdit.Enabled = true;
                     btnDelete.Enabled = true;
                     btnSave.Enabled = false;
-                    btnReset.Enabled = false;
+                    btnReset.Enabled = true;
                     break;
                 case "add":
                     txtCode.Enabled = true;
@@ -100,7 +95,7 @@ namespace Company.View
             }
         }
 
- 
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             status = "add";
@@ -115,7 +110,7 @@ namespace Company.View
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(status == "add")
+            if (status == "add")
             {
                 if (String.IsNullOrEmpty(txtCode.Text))
                 {
@@ -143,21 +138,22 @@ namespace Company.View
                     department.parent = Convert.ToInt32(cboParent.SelectedValue.ToString());
                 }
 
-                    
+
                 Boolean result = controller.add(department);
 
-                if (result == true) {
+                if (result == true)
+                {
                     MessageBox.Show("Success");
                     getData();
                     load();
                     setStatus("reset");
-
                 }
                 else
                 {
                     MessageBox.Show("Fail");
                 }
-            } else if(status == "edit")
+            }
+            else if (status == "edit")
             {
                 if (String.IsNullOrEmpty(txtCode.Text))
                 {
@@ -180,7 +176,7 @@ namespace Company.View
                 department.code = txtCode.Text;
                 department.name = txtName.Text;
                 department.description = txtDescription.Text;
-                if(Convert.ToInt32(cboParent.SelectedValue.ToString()) > 0)
+                if (Convert.ToInt32(cboParent.SelectedValue.ToString()) > 0)
                 {
                     department.parent = Convert.ToInt32(cboParent.SelectedValue.ToString());
                 }
@@ -194,7 +190,6 @@ namespace Company.View
                     getData();
                     load();
                     setStatus("reset");
-
                 }
                 else
                 {
@@ -219,8 +214,8 @@ namespace Company.View
                 txtName.Text = a.name;
                 txtDescription.Text = a.description;
 
-                
-                cboParent.SelectedItem = cboParent.FindString(a.Department1?.name);
+
+                cboParent.SelectedItem = cboParent.FindString(a.parentDepartment?.name);
             }
         }
 
@@ -234,13 +229,13 @@ namespace Company.View
                 var department = controller.find(id);
                 var employeeCount = department.Employees.Count();
 
-                if(employeeCount > 0)
+                if (employeeCount > 0)
                 {
                     MessageBox.Show("The department is not empty");
                     return;
                 }
 
-                var departmentCount = department.Departments1.Count();
+                var departmentCount = department.childDepartments.Count();
 
                 if (departmentCount > 0)
                 {
@@ -295,7 +290,7 @@ namespace Company.View
                         code = result.code,
                         name = result.name,
                         description = result.description,
-                        parent = result.Department1?.name
+                        parent = result.parentDepartment?.name
                     }
             };
 
