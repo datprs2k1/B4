@@ -11,8 +11,8 @@ namespace Company.Data
 
         #region DbSet
         public virtual DbSet<Department> Departments { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Salary> Salaries { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Attendance> Attendances { get; set; }
         #endregion
 

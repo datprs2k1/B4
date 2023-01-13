@@ -7,13 +7,13 @@ namespace Company.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddAttendancesTable : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddAttendancesTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "202301110722295_AddAttendancesTable"; }
+            get { return "202301131044009_init"; }
         }
         
         string IMigrationMetadata.Source

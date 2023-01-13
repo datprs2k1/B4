@@ -182,21 +182,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202301110722295_AddAttendancesTable.cs" />
-    <Compile Include="Migrations\202301110722295_AddAttendancesTable.designer.cs">
-      <DependentUpon>202301110722295_AddAttendancesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202301110734447_AddColumnStatusIntoAttendanceTable.cs" />
-    <Compile Include="Migrations\202301110734447_AddColumnStatusIntoAttendanceTable.designer.cs">
-      <DependentUpon>202301110734447_AddColumnStatusIntoAttendanceTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202301110811443_AddColumnPhoneToEmployeeTable.cs" />
-    <Compile Include="Migrations\202301110811443_AddColumnPhoneToEmployeeTable.designer.cs">
-      <DependentUpon>202301110811443_AddColumnPhoneToEmployeeTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202301110927540_deleteColumnPhoneToEmployeeTable.cs" />
-    <Compile Include="Migrations\202301110927540_deleteColumnPhoneToEmployeeTable.designer.cs">
-      <DependentUpon>202301110927540_deleteColumnPhoneToEmployeeTable.cs</DependentUpon>
+    <Compile Include="Migrations\202301131044009_init.cs" />
+    <Compile Include="Migrations\202301131044009_init.designer.cs">
+      <DependentUpon>202301131044009_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -237,17 +225,8 @@
     <Compile Include="View\DepartmentTreeView.Designer.cs">
       <DependentUpon>DepartmentTreeView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\202301110722295_AddAttendancesTable.resx">
-      <DependentUpon>202301110722295_AddAttendancesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202301110734447_AddColumnStatusIntoAttendanceTable.resx">
-      <DependentUpon>202301110734447_AddColumnStatusIntoAttendanceTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202301110811443_AddColumnPhoneToEmployeeTable.resx">
-      <DependentUpon>202301110811443_AddColumnPhoneToEmployeeTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202301110927540_deleteColumnPhoneToEmployeeTable.resx">
-      <DependentUpon>202301110927540_deleteColumnPhoneToEmployeeTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202301131044009_init.resx">
+      <DependentUpon>202301131044009_init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
