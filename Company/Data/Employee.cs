@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,6 +8,10 @@ namespace Company.Data
     [Table("employees")]
     public partial class Employee
     {
+        public Employee()
+        {
+            Attendances = new HashSet<Attendance>();
+        }
         [Key]
         public int id { get; set; }
         [Required]
@@ -25,6 +30,7 @@ namespace Company.Data
         public int salary_id { get; set; }
         public virtual Salary Salary { get; set; }
         public virtual Department Department { get; set; }
+        public virtual ICollection<Attendance> Attendances { get; set; }
 
     }
 }

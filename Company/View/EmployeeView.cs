@@ -1,13 +1,8 @@
 ﻿using Company.Controller;
 using Company.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Company.View
@@ -17,7 +12,7 @@ namespace Company.View
         string status = "reset";
         int id;
         EmployeeController controller = new EmployeeController();
-        DepartmentController departmentController= new DepartmentController();
+        DepartmentController departmentController = new DepartmentController();
         SalaryController salaryController = new SalaryController();
         public EmployeeView()
         {
@@ -82,6 +77,8 @@ namespace Company.View
                     id = 2
                 }
             };
+
+            list.ReadOnly = false;
 
             cboGender.DataSource = gender;
 
@@ -163,11 +160,11 @@ namespace Company.View
                 {
                     MessageBox.Show("Address is required.");
                     return;
-                }                
+                }
 
                 Employee employee = new Employee();
-                employee.name= txtName.Text;
-                employee.address= txtAddress.Text;
+                employee.name = txtName.Text;
+                employee.address = txtAddress.Text;
                 employee.dob = dtpDOB.Value;
                 employee.gender = Convert.ToByte(cboGender.SelectedValue.ToString());
                 employee.startdate = dtpStartDate.Value;
@@ -245,7 +242,7 @@ namespace Company.View
                 txtAddress.Text = a.address;
                 cboGender.SelectedValue = Convert.ToInt32(a.gender);
                 cboDepartment.SelectedValue = a.department_id;
-                cboSalary.SelectedValue= a.salary_id;
+                cboSalary.SelectedValue = a.salary_id;
                 dtpDOB.Value = a.dob;
                 dtpStartDate.Value = a.startdate;
             }
@@ -290,9 +287,9 @@ namespace Company.View
 
             var result = controller.find(Convert.ToInt32(txtSearch.Text));
 
-            if(result == null)
+            if (result == null)
             {
-                list.DataSource= null;
+                list.DataSource = null;
                 list.Refresh();
                 return;
             }

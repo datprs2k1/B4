@@ -38,7 +38,7 @@ namespace Company.View
 
         public void load()
         {
-            var parent = controller.getAll().Where(x => x.parent == null).ToList();
+            var parent = controller.getAll().ToList();
 
             Department department = new Department();
             department.id = 0;

@@ -32,6 +32,8 @@
             this.department = new System.Windows.Forms.ToolStripMenuItem();
             this.employee = new System.Windows.Forms.ToolStripMenuItem();
             this.salary = new System.Windows.Forms.ToolStripMenuItem();
+            this.attendanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.treeViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +43,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.department,
             this.employee,
-            this.salary});
+            this.salary,
+            this.attendanceToolStripMenuItem,
+            this.treeViewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(965, 28);
@@ -69,6 +73,20 @@
             this.salary.Text = "Salary";
             this.salary.Click += new System.EventHandler(this.salary_Click);
             // 
+            // attendanceToolStripMenuItem
+            // 
+            this.attendanceToolStripMenuItem.Name = "attendanceToolStripMenuItem";
+            this.attendanceToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
+            this.attendanceToolStripMenuItem.Text = "Attendance";
+            this.attendanceToolStripMenuItem.Click += new System.EventHandler(this.attendanceToolStripMenuItem_Click);
+            // 
+            // treeViewToolStripMenuItem
+            // 
+            this.treeViewToolStripMenuItem.Name = "treeViewToolStripMenuItem";
+            this.treeViewToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
+            this.treeViewToolStripMenuItem.Text = "TreeView";
+            this.treeViewToolStripMenuItem.Click += new System.EventHandler(this.treeViewToolStripMenuItem_Click);
+            // 
             // HomeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -92,5 +110,7 @@
         private System.Windows.Forms.ToolStripMenuItem department;
         private System.Windows.Forms.ToolStripMenuItem employee;
         private System.Windows.Forms.ToolStripMenuItem salary;
+        private System.Windows.Forms.ToolStripMenuItem attendanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem treeViewToolStripMenuItem;
     }
 }
