@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Company.Controller
@@ -29,7 +27,7 @@ namespace Company.Controller
 
                 return true;
             }
-            catch(IOException e)
+            catch (IOException e)
             {
                 MessageBox.Show(e.Message);
                 return false;
@@ -51,7 +49,7 @@ namespace Company.Controller
 
                 if (a == null) return false;
                 a.name = salary.name;
-                a.coefficient= salary.coefficient;
+                a.coefficient = salary.coefficient;
 
                 _context.SaveChanges();
 

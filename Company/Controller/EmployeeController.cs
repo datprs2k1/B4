@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Company.Controller
@@ -29,7 +27,7 @@ namespace Company.Controller
 
                 return true;
             }
-            catch(IOException e)
+            catch (IOException e)
             {
                 MessageBox.Show(e.Message);
                 return false;
@@ -55,9 +53,9 @@ namespace Company.Controller
                 a.dob = employee.dob;
                 a.gender = employee.gender;
                 a.address = employee.address;
-                a.startdate= employee.startdate;
+                a.startdate = employee.startdate;
                 a.department_id = employee.department_id;
-                a.salary_id= employee.salary_id;
+                a.salary_id = employee.salary_id;
 
                 _context.SaveChanges();
 

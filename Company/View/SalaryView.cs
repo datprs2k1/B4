@@ -1,13 +1,7 @@
 ﻿using Company.Controller;
 using Company.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Company.View
@@ -100,7 +94,7 @@ namespace Company.View
 
                 salary.coefficient = Convert.ToDecimal(txtCoefficient.Text);
 
-               
+
                 Boolean result = controller.add(salary);
 
                 if (result == true)
@@ -172,7 +166,7 @@ namespace Company.View
 
                 var employeeCount = salary.Employees.Count();
 
-                if(employeeCount > 0)
+                if (employeeCount > 0)
                 {
                     MessageBox.Show("Salary is used");
                     return;
@@ -198,7 +192,7 @@ namespace Company.View
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(txtSearch.Text))
+            if (String.IsNullOrEmpty(txtSearch.Text))
             {
                 MessageBox.Show("Keyword is required.");
                 return;
