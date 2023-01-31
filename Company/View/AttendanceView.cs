@@ -26,7 +26,7 @@ namespace Company.View
 
             var data = employeeController.getAll()
                 .GroupJoin(
-                controller.getAll().Where(x => x.created_at.Day == date.Day),
+                controller.getAll().Where(x => x.created_at.Day == date.Day && x.created_at.Month == date.Month && x.created_at.Year == date.Year),
                 e => e.id,
                 a => a.employee_id,
                 (e, a) => new { e, a }
