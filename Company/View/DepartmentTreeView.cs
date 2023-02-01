@@ -9,6 +9,7 @@ namespace Company.View
     public partial class DepartmentTreeView : Form
     {
         DepartmentController controller = new DepartmentController();
+        int idDepartment;
         public DepartmentTreeView()
         {
             InitializeComponent();
@@ -65,16 +66,33 @@ namespace Company.View
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             TreeViewHitTestInfo info = treeView1.HitTest(treeView1.PointToClient(Cursor.Position));
-            loadData(Convert.ToInt32(info.Node.Tag));
+            idDepartment = Convert.ToInt32(info.Node.Tag);
+            loadData(Convert.ToInt32(info.Node.Tag), dtpDate.Value);
         }
 
-        public void loadData(int id)
+        public void loadData(int id, DateTime date)
         {
             var data = controller.find(id).Employees.Select(x => new
             {
                 id = x.id,
                 name = x.name,
-                salary = x.Salary.coefficient * x.Attendances.Where(e => e.created_at.Month == DateTime.Today.Month && e.created_at.Year == DateTime.Today.Year && e.status == 1).Count(),
+                work = x.Attendances.Where(a => a.created_at.Month == dtpDate.Value.Month && a.created_at.Year == dtpDate.Value.Year && a.status == 1).Count(),
+                salary = x.Salary.coefficient * x.Attendances.Where(e => e.created_at.Month == date.Month && e.created_at.Year == date.Year && e.status == 1).Count(),
+            }).ToList();
+
+            list.AutoGenerateColumns = false;
+            list.DataSource = data;
+            list.Refresh();
+        }
+
+        private void dtpDate_ValueChanged(object sender, EventArgs e)
+        {
+            var data = controller.find(idDepartment).Employees.Select(x => new
+            {
+                id = x.id,
+                name = x.name,
+                work = x.Attendances.Where(a => a.created_at.Month == dtpDate.Value.Month && a.created_at.Year == dtpDate.Value.Year && a.status == 1).Count(),
+                salary = x.Salary.coefficient * x.Attendances.Where(a => a.created_at.Month == dtpDate.Value.Month && a.created_at.Year == dtpDate.Value.Year && a.status == 1).Count(),
             }).ToList();
 
             list.AutoGenerateColumns = false;

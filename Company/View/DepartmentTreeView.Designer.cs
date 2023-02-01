@@ -30,8 +30,10 @@
         {
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.list = new System.Windows.Forms.DataGridView();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Work = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.list)).BeginInit();
             this.SuspendLayout();
@@ -50,13 +52,24 @@
             this.list.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Column1,
+            this.Work,
             this.Column2});
-            this.list.Location = new System.Drawing.Point(322, 29);
+            this.list.Location = new System.Drawing.Point(322, 86);
             this.list.Name = "list";
             this.list.RowHeadersWidth = 51;
             this.list.RowTemplate.Height = 24;
-            this.list.Size = new System.Drawing.Size(553, 498);
+            this.list.Size = new System.Drawing.Size(553, 441);
             this.list.TabIndex = 1;
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.CustomFormat = "MM/yyyy";
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDate.Location = new System.Drawing.Point(454, 40);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpDate.TabIndex = 2;
+            this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
             // 
             // ID
             // 
@@ -74,6 +87,14 @@
             this.Column1.Name = "Column1";
             this.Column1.Width = 125;
             // 
+            // Work
+            // 
+            this.Work.DataPropertyName = "work";
+            this.Work.HeaderText = "Work";
+            this.Work.MinimumWidth = 6;
+            this.Work.Name = "Work";
+            this.Work.Width = 125;
+            // 
             // Column2
             // 
             this.Column2.DataPropertyName = "salary";
@@ -87,6 +108,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 564);
+            this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.list);
             this.Controls.Add(this.treeView1);
             this.Name = "DepartmentTreeView";
@@ -100,8 +122,10 @@
 
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.DataGridView list;
+        private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Work;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
