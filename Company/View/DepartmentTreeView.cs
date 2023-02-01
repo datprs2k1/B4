@@ -87,17 +87,7 @@ namespace Company.View
 
         private void dtpDate_ValueChanged(object sender, EventArgs e)
         {
-            var data = controller.find(idDepartment).Employees.Select(x => new
-            {
-                id = x.id,
-                name = x.name,
-                work = x.Attendances.Where(a => a.created_at.Month == dtpDate.Value.Month && a.created_at.Year == dtpDate.Value.Year && a.status == 1).Count(),
-                salary = x.Salary.coefficient * x.Attendances.Where(a => a.created_at.Month == dtpDate.Value.Month && a.created_at.Year == dtpDate.Value.Year && a.status == 1).Count(),
-            }).ToList();
-
-            list.AutoGenerateColumns = false;
-            list.DataSource = data;
-            list.Refresh();
+            loadData(idDepartment, dtpDate.Value);
         }
     }
 }

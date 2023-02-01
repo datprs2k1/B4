@@ -58,5 +58,6 @@ namespace Company.Data
                 .WithMany(e => e.Attendances)
                 .HasForeignKey(e => e.employee_id);
         }
+
     }
 }

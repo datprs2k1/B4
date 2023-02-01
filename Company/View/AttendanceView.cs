@@ -20,8 +20,6 @@ namespace Company.View
         public void load(DateTime date)
         {
 
-
-
             lblDate.Text = date.ToString("dd-MM-yyyy");
 
             var data = employeeController.getAll()
